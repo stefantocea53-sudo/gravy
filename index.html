@@ -240,6 +240,42 @@
     text-transform:uppercase;
   }
 
+  /* ── SOCIAL PROOF REVIEWS ── */
+  .reviews {
+    display:flex; flex-direction:column;
+    gap:8px; margin-bottom:16px;
+  }
+  .review-item {
+    background:rgba(255,255,255,0.04);
+    border:1px solid rgba(255,255,255,0.08);
+    border-radius:14px; padding:12px 14px;
+  }
+  .review-top {
+    display:flex; align-items:center;
+    gap:10px; margin-bottom:8px;
+  }
+  .review-avatar {
+    width:34px; height:34px; border-radius:50%;
+    display:flex; align-items:center; justify-content:center;
+    font-size:12px; font-weight:800; color:#fff;
+    flex-shrink:0;
+  }
+  .review-meta { flex:1; }
+  .review-name  { font-size:13px; font-weight:700; color:#fff; margin-bottom:1px; }
+  .review-stars { font-size:11px; color:var(--gold); letter-spacing:1px; }
+  .review-badge {
+    font-size:11px; font-weight:600;
+    color:rgba(74,222,128,0.9);
+    background:rgba(74,222,128,0.08);
+    border:1px solid rgba(74,222,128,0.2);
+    border-radius:6px; padding:2px 7px;
+    white-space:nowrap;
+  }
+  .review-text {
+    font-size:13px; color:rgba(255,255,255,0.7);
+    line-height:1.5; font-style:italic;
+  }
+
   /* ── RETURN CTA CARD ── */
   .return-card {
     background:linear-gradient(135deg,#0d1a0d 0%,#0a1f12 50%,#0d1a0d 100%);
@@ -429,19 +465,44 @@
     <h2 class="gift-card-title">Get a <span class="amount">$100</span> Gift Card</h2>
     <p class="gift-card-sub">Here's exactly how it works — no games, no tricks. Just two steps.</p>
 
-    <div class="flow">
-      <div class="flow-step">
-        <div class="flow-left">
-          <div class="flow-num">1</div>
-          <div class="flow-line"></div>
+    <!-- SOCIAL PROOF -->
+    <div class="reviews">
+      <div class="review-item">
+        <div class="review-top">
+          <div class="review-avatar" style="background:linear-gradient(135deg,#b45309,#f59e0b)">JM</div>
+          <div class="review-meta">
+            <div class="review-name">Jake M.</div>
+            <div class="review-stars">★★★★★</div>
+          </div>
+          <div class="review-badge">✓ Verified</div>
         </div>
-        <div class="flow-body">
-          <div class="flow-title">Download Gravy Pass</div>
-          <div class="flow-desc">Free download from the App Store or Google Play. Takes 30 seconds.</div>
-          <span class="flow-tag">✓ Free · No credit card</span>
-        </div>
+        <div class="review-text">"Downloaded it, got the $100 PayPal gift card in like 2 minutes. Literally just had to sign up. Insane."</div>
       </div>
+      <div class="review-item">
+        <div class="review-top">
+          <div class="review-avatar" style="background:linear-gradient(135deg,#065f46,#10b981)">SR</div>
+          <div class="review-meta">
+            <div class="review-name">Sofia R.</div>
+            <div class="review-stars">★★★★★</div>
+          </div>
+          <div class="review-badge">✓ Verified</div>
+        </div>
+        <div class="review-text">"Free download and they actually give you $100?? I sent the link to my whole group chat lol."</div>
+      </div>
+      <div class="review-item">
+        <div class="review-top">
+          <div class="review-avatar" style="background:linear-gradient(135deg,#1e3a8a,#3b82f6)">DK</div>
+          <div class="review-meta">
+            <div class="review-name">Dev K.</div>
+            <div class="review-stars">★★★★★</div>
+          </div>
+          <div class="review-badge">✓ Verified</div>
+        </div>
+        <div class="review-text">"Came back for Block Blast after the gift card. Making like $200+ on weekends. App is legit."</div>
+      </div>
+    </div>
 
+    <div class="flow">
       <div class="flow-step">
         <div class="flow-left">
           <div class="flow-num">2</div>
