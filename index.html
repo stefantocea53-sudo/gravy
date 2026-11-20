@@ -18,6 +18,56 @@
     --gold-border: rgba(245,200,66,0.22);
   }
 
+  /* ── CHRISTMAS BANNER ── */
+  .xmas-banner {
+    width:100%; max-width:420px;
+    background: linear-gradient(135deg, #1a4a1a 0%, #0d2e0d 50%, #1a3a1a 100%);
+    border: 1px solid rgba(255,255,255,0.12);
+    border-radius: 14px;
+    padding: 11px 16px;
+    display: flex; align-items: center; gap: 10px;
+    font-size: 13px; font-weight: 600;
+    color: #fff;
+    position: relative; overflow: hidden;
+    margin: 10px 16px 0;
+  }
+  .xmas-banner::before {
+    content:"";
+    position:absolute; inset:0;
+    background: linear-gradient(90deg, rgba(255,0,0,0.08), transparent, rgba(255,0,0,0.08));
+    pointer-events:none;
+  }
+  .xmas-banner .xmas-emoji { font-size:20px; flex-shrink:0; }
+  .xmas-banner .xmas-text { flex:1; line-height:1.3; }
+  .xmas-banner .xmas-text span { color:#ff6b6b; }
+  .xmas-banner .xmas-tag {
+    background: #ff3b3b;
+    color: #fff; font-size: 10px; font-weight: 700;
+    padding: 3px 7px; border-radius: 6px;
+    white-space: nowrap; flex-shrink: 0;
+    animation: xmas-pulse 1.8s ease-in-out infinite;
+  }
+  @keyframes xmas-pulse {
+    0%,100% { opacity:1; }
+    50% { opacity:.65; }
+  }
+
+  /* ── SNOW ── */
+  .snowflake {
+    position: fixed;
+    top: -20px;
+    color: rgba(255,255,255,0.75);
+    font-size: 14px;
+    pointer-events: none;
+    z-index: 9999;
+    animation: snowfall linear infinite;
+    user-select: none;
+  }
+  @keyframes snowfall {
+    0%   { transform: translateY(0) rotate(0deg); opacity: .9; }
+    100% { transform: translateY(110vh) rotate(360deg); opacity: 0; }
+  }
+
   body {
     font-family: 'Inter', -apple-system, BlinkMacSystemFont, sans-serif;
     background:
@@ -427,6 +477,13 @@
 
 <div id="toast-container"></div>
 
+<!-- CHRISTMAS BANNER -->
+<div class="xmas-banner">
+  <span class="xmas-emoji">🎄</span>
+  <div class="xmas-text">Christmas Special — <span>$100 Gift Card</span> for every new download this week</div>
+  <div class="xmas-tag">🎅 LIMITED</div>
+</div>
+
 <div class="page-wrapper">
 
   <!-- HERO -->
@@ -461,7 +518,7 @@
 
   <!-- GIFT CARD FLOW -->
   <div class="gift-card">
-    <div class="gift-card-label">🎁 Limited Offer</div>
+    <div class="gift-card-label">🎄 Christmas Special Offer</div>
     <h2 class="gift-card-title">Get a <span class="amount">$100</span> Gift Card</h2>
     <p class="gift-card-sub">Here's exactly how it works — no games, no tricks. Just two steps.</p>
 
@@ -587,6 +644,26 @@
     setTimeout(()=>{ el.classList.add('hide'); setTimeout(()=>el.remove(), 400); }, 3200);
   }
   setTimeout(()=>{ showToast(); setInterval(showToast, 4800); }, 1800);
+</script>
+
+<script>
+// ── SNOW ──
+(function(){
+  const flakes = ['❄','❅','❆','✦','·'];
+  const count = 18;
+  for(let i=0;i<count;i++){
+    const el = document.createElement('span');
+    el.className = 'snowflake';
+    el.textContent = flakes[Math.floor(Math.random()*flakes.length)];
+    el.style.left = Math.random()*100 + 'vw';
+    el.style.fontSize = (10 + Math.random()*12) + 'px';
+    el.style.opacity = 0.4 + Math.random()*0.5;
+    const dur = 6 + Math.random()*10;
+    el.style.animationDuration = dur + 's';
+    el.style.animationDelay = -(Math.random()*dur) + 's';
+    document.body.appendChild(el);
+  }
+})();
 </script>
 
 </body>
