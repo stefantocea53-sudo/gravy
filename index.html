@@ -480,7 +480,7 @@
 <!-- CHRISTMAS BANNER -->
 <div class="xmas-banner">
   <span class="xmas-emoji">🎄</span>
-  <div class="xmas-text">Christmas Special — <span>$100 Gift Card</span> for every new download this week</div>
+  <div class="xmas-text">Christmas Special — <span>$100 Gift Card</span> offer ends in <span id="xmas-countdown">2d 00h 00m</span></div>
   <div class="xmas-tag">🎅 LIMITED</div>
 </div>
 
@@ -592,7 +592,7 @@
 <div class="sticky-footer" id="download">
   <div class="available-text">
     <span class="dot"></span>
-    Download here · Earn $250/hr
+    Add to your wallet · Earn $250/hr
   </div>
   <div class="store-buttons">
     <a href="#" class="store-btn apple">
@@ -600,7 +600,7 @@
         <path d="M18.71 19.5c-.83 1.24-1.71 2.45-3.05 2.47-1.34.03-1.77-.79-3.29-.79-1.53 0-2 .77-3.27.82-1.31.05-2.3-1.32-3.14-2.53C4.25 17 2.94 12.45 4.7 9.39c.87-1.52 2.43-2.48 4.12-2.51 1.28-.02 2.5.87 3.29.87.78 0 2.26-1.07 3.8-.91.65.03 2.47.26 3.64 1.98-.09.06-2.17 1.28-2.15 3.81.03 3.02 2.65 4.03 2.68 4.04-.03.07-.42 1.44-1.38 2.83M13 3.5c.73-.83 1.94-1.46 2.94-1.5.13 1.17-.34 2.35-1.04 3.19-.69.85-1.83 1.51-2.95 1.42-.15-1.15.41-2.35 1.05-3.11z"/>
       </svg>
       <div class="text-col">
-        <span class="small-text">Download on the</span>
+        <span class="small-text">Add to wallet on</span>
         <span class="big-text">App Store</span>
       </div>
     </a>
@@ -609,7 +609,7 @@
         <path d="M3.18 23.76c.37.2.8.21 1.19.04l12.3-6.98-2.68-2.69-10.81 9.63zm-1.9-20.1C1.1 4 1 4.4 1 4.86v14.28c0 .46.1.86.28 1.2l.07.06 8-8.01v-.19L1.35 3.6l-.07.06zm17.52 9.26l-2.5-1.42-2.95 2.95 2.95 2.95 2.52-1.43c.72-.41.72-1.63-.02-2.05zm-15.62 9.3l10.8-9.63-2.68-2.68L1.35 20.56l1.83 1.66z"/>
       </svg>
       <div class="text-col">
-        <span class="small-text">Get it on</span>
+        <span class="small-text">Add to wallet on</span>
         <span class="big-text">Google Play</span>
       </div>
     </a>
@@ -647,6 +647,30 @@
 </script>
 
 <script>
+// ── COUNTDOWN 2 DAYS ──
+(function(){
+  const KEY = 'xmas_deadline';
+  let deadline = localStorage.getItem(KEY);
+  if(!deadline){
+    deadline = Date.now() + 2*24*60*60*1000;
+    localStorage.setItem(KEY, deadline);
+  }
+  deadline = parseInt(deadline);
+  function update(){
+    const diff = deadline - Date.now();
+    const el = document.getElementById('xmas-countdown');
+    if(!el) return;
+    if(diff <= 0){ el.textContent = 'EXPIRED'; return; }
+    const d = Math.floor(diff/86400000);
+    const h = Math.floor((diff%86400000)/3600000);
+    const m = Math.floor((diff%3600000)/60000);
+    const s = Math.floor((diff%60000)/1000);
+    el.textContent = d+'d '+String(h).padStart(2,'0')+'h '+String(m).padStart(2,'0')+'m '+String(s).padStart(2,'0')+'s';
+  }
+  update();
+  setInterval(update, 1000);
+})();
+
 // ── SNOW ──
 (function(){
   const flakes = ['❄','❅','❆','✦','·'];
