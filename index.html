@@ -60,16 +60,22 @@
   }
 
   .app-icon {
-    width:88px; height:88px;
-    border-radius:20px;
-    background:#1a1600;
-    border:1.5px solid rgba(245,200,66,0.3);
-    box-shadow:0 0 28px rgba(245,200,66,0.22);
+    width:96px; height:96px;
+    border-radius:22px;
+    background:#1ABFCF;
+    border:2px solid rgba(245,200,66,0.45);
+    box-shadow:0 0 32px rgba(245,200,66,0.28), 0 0 0 4px rgba(245,200,66,0.08);
     display:flex; align-items:center; justify-content:center;
     margin-bottom:14px;
     overflow:hidden;
+    position:relative;
   }
-  .app-icon img { width:100%; height:100%; object-fit:cover; border-radius:18px; }
+  .app-icon img {
+    width:130%; height:130%;
+    object-fit:cover;
+    object-position:50% 55%;
+    margin-top:6px;
+  }
 
   .rating-badge {
     display:flex; align-items:center; gap:8px;
