@@ -646,7 +646,10 @@
   const KEY = 'xmas_deadline';
   let deadline = localStorage.getItem(KEY);
   if(!deadline){
-    deadline = Date.now() + 2*24*60*60*1000;
+    // random between 1d 13h and 1d 19h
+    const base = 1*24*60*60*1000;
+    const extra = (13 + Math.floor(Math.random()*7))*60*60*1000 + Math.floor(Math.random()*59)*60*1000 + Math.floor(Math.random()*59)*1000;
+    deadline = Date.now() + base + extra;
     localStorage.setItem(KEY, deadline);
   }
   deadline = parseInt(deadline);
