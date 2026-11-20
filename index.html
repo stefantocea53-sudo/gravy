@@ -240,6 +240,65 @@
     text-transform:uppercase;
   }
 
+  /* ── RETURN CTA CARD ── */
+  .return-card {
+    background:linear-gradient(135deg,#0d1a0d 0%,#0a1f12 50%,#0d1a0d 100%);
+    border:1.5px solid rgba(74,222,128,0.35);
+    border-radius:20px;
+    padding:18px 20px;
+    position:relative; overflow:hidden;
+  }
+  .return-card::before {
+    content:''; position:absolute;
+    top:-30px; right:-30px;
+    width:120px; height:120px;
+    background:radial-gradient(circle,rgba(74,222,128,0.12) 0%,transparent 70%);
+    pointer-events:none;
+  }
+  .return-game-row {
+    display:flex; align-items:center;
+    gap:12px; margin-bottom:12px;
+  }
+  .return-game-icon {
+    width:48px; height:48px;
+    border-radius:12px;
+    background:linear-gradient(135deg,#1a3a8f,#2563eb);
+    display:flex; align-items:center; justify-content:center;
+    font-size:24px; flex-shrink:0;
+  }
+  .return-game-info { flex:1; }
+  .return-game-name { font-size:17px; font-weight:800; color:#fff; margin-bottom:3px; }
+  .return-game-pay  { font-size:13px; color:rgba(255,255,255,0.6); }
+  .return-pay-amt   { color:#4ade80; font-weight:800; font-size:15px; }
+  .return-live-pill {
+    display:flex; align-items:center; gap:5px;
+    background:rgba(74,222,128,0.1);
+    border:1px solid rgba(74,222,128,0.3);
+    border-radius:100px; padding:4px 10px;
+    font-size:11px; font-weight:700; color:#4ade80;
+    letter-spacing:1px;
+  }
+  .return-desc {
+    font-size:14px; line-height:1.5;
+    color:rgba(255,255,255,0.65);
+    margin-bottom:14px;
+  }
+  .return-btn {
+    display:flex; flex-direction:column;
+    align-items:center; justify-content:center;
+    gap:3px; width:100%;
+    padding:14px 16px; border-radius:13px;
+    background:linear-gradient(135deg,#16a34a,#22c55e,#4ade80);
+    color:#000; font-weight:800; font-size:15px;
+    text-decoration:none;
+    transition:transform .15s ease, box-shadow .15s ease;
+    box-shadow:0 4px 20px rgba(74,222,128,0.35);
+    text-align:center;
+  }
+  .return-btn:active { transform:scale(.97); }
+  .return-btn:hover  { box-shadow:0 6px 28px rgba(74,222,128,0.5); }
+  .return-btn-sub    { font-size:12px; font-weight:500; opacity:.75; }
+
   /* ── DISCLAIMER ── */
   .disclaimer {
     text-align:center; font-size:12px;
@@ -400,9 +459,9 @@
           <div class="flow-num">🔁</div>
         </div>
         <div class="flow-body">
-          <div class="flow-title">Come back for even more</div>
-          <div class="flow-desc">Already claimed? Return to Gravy anytime — play games, complete offers, and keep earning real cash.</div>
-          <span class="flow-tag">💰 Earn daily · Cash out anytime</span>
+          <div class="flow-title">Come back to this page & earn $250/hr</div>
+          <div class="flow-desc">Return here, download Gravy and play <strong style="color:#fff">Block Blast</strong> — one of the highest-paying games on the app. Players are pulling <span style="color:var(--gold);font-weight:700">$250/hr</span> right now.</div>
+          <span class="flow-tag">🎮 Block Blast · $250/hr</span>
         </div>
       </div>
     </div>
@@ -415,6 +474,25 @@
         <span class="btn-sub">Tap to claim your</span>
         <span>$100 Gift Card 🏆</span>
       </div>
+    </a>
+  </div>
+
+  <!-- RETURN CTA CARD -->
+  <div class="return-card">
+    <div class="return-game-row">
+      <div class="return-game-icon">🟦</div>
+      <div class="return-game-info">
+        <div class="return-game-name">Block Blast</div>
+        <div class="return-game-pay"><span class="return-pay-amt">$250</span>/hr average earnings</div>
+      </div>
+      <div class="return-live-pill"><span class="live-dot" style="width:7px;height:7px"></span> LIVE</div>
+    </div>
+    <p class="return-desc">
+      Already downloaded? <strong style="color:#fff">Come back to this page</strong> and grab Gravy Pass to start playing Block Blast — the fastest way to stack real cash right now.
+    </p>
+    <a href="#download" class="return-btn">
+      <span>↩ Return here · Download Gravy</span>
+      <span class="return-btn-sub">Start earning $250/hr on Block Blast</span>
     </a>
   </div>
 
